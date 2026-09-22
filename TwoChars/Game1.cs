@@ -19,7 +19,7 @@ namespace TwoChars
         public Rectangle _playerBounds;
         public float _movementSpeed = 100f;
         public Vector2 _p1Size = new(152f, 256f), _p2Size = new(152f, 256f);
-        public Vector2 _sizeMultiplier = new(1.002f, 1.002f);
+        public Vector2 _sizeMultiplier = new(1.005f, 1.005f);
         // ----------------------------------------------------------
 
         public Game1()
@@ -70,7 +70,7 @@ namespace TwoChars
             if (keysState.IsKeyDown(Keys.W))
             {
                 _p1Pos.Y -= _movementSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (_p1Pos.Y > _playerBounds.Bottom)
+                if (_p1Pos.Y > _playerBounds.Top)
                 {
                     _p1Size.X /= _sizeMultiplier.X;
                     _p1Size.Y /= _sizeMultiplier.Y;
@@ -80,7 +80,7 @@ namespace TwoChars
             if (keysState.IsKeyDown(Keys.S))
             {
                 _p1Pos.Y += _movementSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (_p1Pos.Y < _playerBounds.Top)
+                if (_p1Pos.Y < _playerBounds.Bottom)
                 {
                     _p1Size.X *= _sizeMultiplier.X;
                     _p1Size.Y *= _sizeMultiplier.Y;
@@ -92,7 +92,7 @@ namespace TwoChars
             if (keysState.IsKeyDown(Keys.Up))
             {
                 _p2Pos.Y -= _movementSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (_p2Pos.Y > _playerBounds.Bottom)
+                if (_p2Pos.Y > _playerBounds.Top)
                 {
                     _p2Size.X /= _sizeMultiplier.X;
                     _p2Size.Y /= _sizeMultiplier.Y;
@@ -102,7 +102,7 @@ namespace TwoChars
             if (keysState.IsKeyDown(Keys.Down))
             {
                 _p2Pos.Y += _movementSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (_p2Pos.Y < _playerBounds.Top)
+                if (_p2Pos.Y < _playerBounds.Bottom)
                 {
                     _p2Size.X *= _sizeMultiplier.X;
                     _p2Size.Y *= _sizeMultiplier.Y;
